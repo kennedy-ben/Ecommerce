@@ -64,9 +64,40 @@
      
       <div class="">
        
-        <button class="col-md-5 btn btn-lg cartit"  >Add to Cart</button>
+        
     
-        <button class="col-md-5 btn btn-lg ">Buy Now</button>
+        <div class="container">
+          
+          <form method="POST" action="/process_payment">
+              <div class="form-group">
+                  <label for="card_number">Card Number</label>
+                  <input type="text" class="form-control" id="card_number" name="card_number" required>
+              </div>
+              <div class="form-group">
+                  <label for="expiration_date">Expiration Date</label>
+                  <input type="text" class="form-control" id="expiration_date" name="expiration_date" placeholder="MM/YYYY" required>
+              </div>
+              <div class="form-group">
+                  <label for="cvv">CVV</label>
+                  <input type="text" class="form-control" id="cvv" name="cvv" required>
+              </div>
+              <button type="submit" class="col-md-5 btn btn-lg">Buy Now</button>
+              <button type="submit" class="col-md-5 btn btn-lg">Check Out</button>
+
+          </form>
+  
+          <!-- PayPal button that redirects to PayPal -->
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+              <input type="hidden" name="cmd" value="_xclick">
+              <input type="hidden" name="business" value="kennedymakuani8@gmail.com">  <!-- Replace with your PayPal email -->
+              <input type="hidden" name="item_name" value="Product Name">
+              <input type="hidden" name="amount" value="1000.00">  <!-- Replace with the actual amount -->
+              <input type="hidden" name="currency_code" value="USD">
+              <input type="hidden" name="return" value="https://www.paypal.com/kn/webapps/mpp/account-selection">  <!-- Replace with your success page URL -->
+              <button type="submit" class="col-md-5 btn btn-lg cartit">Pay with PayPal</button>
+          </form>
+      </div>
+          
 
       </div>
     
